@@ -5,7 +5,12 @@
  */
 package view;
 
+import common.MenuEnum;
 import controller.Navigator;
+import dto.MenuDto;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JFrame;
 
 /**
  *
@@ -18,10 +23,20 @@ public class FrMain extends javax.swing.JFrame {
      */
     public FrMain() {
         initComponents();
+        this.setTitle("Student Tracking App");
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        innitCompos();
     }
     public void innitCompos(){
         Navigator navigator = new Navigator(pnMainView);
-        
+        navigator.setStartPage(pnHompage);
+        final List<MenuDto> menus = new ArrayList<>();
+        menus.add(new MenuDto(MenuEnum.HOMEPAGE, pnHompage, lbHomepage));
+        menus.add(new MenuDto(MenuEnum.STUDENT_MANAGER, pnQuanLiHV, lbQuanLiHV));
+        menus.add(new MenuDto(MenuEnum.COURSE_MANAGER, pnQuanLiKH, lbQuanLiKH));
+        menus.add(new MenuDto(MenuEnum.CLASS_MANAGER, pnQuanLiLH, lbQuanLiLH));
+        menus.add(new MenuDto(MenuEnum.STATISTICAL_MANAGER, pnTKDL, lbTKDL));
+        navigator.setEvent(menus);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,12 +67,13 @@ public class FrMain extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        pnLeft.setBackground(new java.awt.Color(0, 0, 0));
+        pnLeft.setBackground(new java.awt.Color(0, 255, 255));
         pnLeft.setLayout(new java.awt.BorderLayout());
 
-        pnApp.setBackground(new java.awt.Color(255, 0, 0));
+        pnApp.setBackground(new java.awt.Color(204, 0, 0));
+        pnApp.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2), javax.swing.BorderFactory.createEmptyBorder(2, 1, 25, 1)));
 
-        lbApp.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbApp.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lbApp.setForeground(new java.awt.Color(255, 255, 255));
         lbApp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_ung_dung_white_24dp.png"))); // NOI18N
         lbApp.setText("QUẢN LÍ HỌC VIÊN");
@@ -65,11 +81,12 @@ public class FrMain extends javax.swing.JFrame {
 
         pnLeft.add(pnApp, java.awt.BorderLayout.NORTH);
 
-        pnMenu.setBackground(new java.awt.Color(0, 0, 0));
+        pnMenu.setBackground(new java.awt.Color(204, 204, 255));
         pnMenu.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 12, 1, 12));
         pnMenu.setLayout(new java.awt.GridLayout(5, 1, 0, 10));
 
-        pnHompage.setBackground(new java.awt.Color(0, 153, 0));
+        pnHompage.setBackground(new java.awt.Color(153, 0, 153));
+        pnHompage.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
 
         lbHomepage.setBackground(new java.awt.Color(102, 0, 102));
         lbHomepage.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -81,16 +98,17 @@ public class FrMain extends javax.swing.JFrame {
         pnHompage.setLayout(pnHompageLayout);
         pnHompageLayout.setHorizontalGroup(
             pnHompageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbHomepage, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+            .addComponent(lbHomepage, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
         );
         pnHompageLayout.setVerticalGroup(
             pnHompageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbHomepage, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(lbHomepage, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
         pnMenu.add(pnHompage);
 
         pnQuanLiHV.setBackground(new java.awt.Color(0, 153, 0));
+        pnQuanLiHV.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
 
         lbQuanLiHV.setBackground(new java.awt.Color(0, 153, 0));
         lbQuanLiHV.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -102,16 +120,17 @@ public class FrMain extends javax.swing.JFrame {
         pnQuanLiHV.setLayout(pnQuanLiHVLayout);
         pnQuanLiHVLayout.setHorizontalGroup(
             pnQuanLiHVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbQuanLiHV, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+            .addComponent(lbQuanLiHV, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
         );
         pnQuanLiHVLayout.setVerticalGroup(
             pnQuanLiHVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbQuanLiHV, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(lbQuanLiHV, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
         pnMenu.add(pnQuanLiHV);
 
         pnQuanLiKH.setBackground(new java.awt.Color(0, 153, 0));
+        pnQuanLiKH.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
 
         lbQuanLiKH.setBackground(new java.awt.Color(0, 153, 0));
         lbQuanLiKH.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -123,16 +142,17 @@ public class FrMain extends javax.swing.JFrame {
         pnQuanLiKH.setLayout(pnQuanLiKHLayout);
         pnQuanLiKHLayout.setHorizontalGroup(
             pnQuanLiKHLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbQuanLiKH, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+            .addComponent(lbQuanLiKH, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
         );
         pnQuanLiKHLayout.setVerticalGroup(
             pnQuanLiKHLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbQuanLiKH, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(lbQuanLiKH, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
         pnMenu.add(pnQuanLiKH);
 
         pnQuanLiLH.setBackground(new java.awt.Color(0, 153, 0));
+        pnQuanLiLH.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
 
         lbQuanLiLH.setBackground(new java.awt.Color(0, 153, 0));
         lbQuanLiLH.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -144,16 +164,17 @@ public class FrMain extends javax.swing.JFrame {
         pnQuanLiLH.setLayout(pnQuanLiLHLayout);
         pnQuanLiLHLayout.setHorizontalGroup(
             pnQuanLiLHLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbQuanLiLH, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+            .addComponent(lbQuanLiLH, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
         );
         pnQuanLiLHLayout.setVerticalGroup(
             pnQuanLiLHLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbQuanLiLH, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(lbQuanLiLH, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
         pnMenu.add(pnQuanLiLH);
 
         pnTKDL.setBackground(new java.awt.Color(0, 153, 0));
+        pnTKDL.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
 
         lbTKDL.setBackground(new java.awt.Color(0, 153, 0));
         lbTKDL.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -165,18 +186,18 @@ public class FrMain extends javax.swing.JFrame {
         pnTKDL.setLayout(pnTKDLLayout);
         pnTKDLLayout.setHorizontalGroup(
             pnTKDLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbTKDL, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+            .addComponent(lbTKDL, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
         );
         pnTKDLLayout.setVerticalGroup(
             pnTKDLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbTKDL, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(lbTKDL, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
         pnMenu.add(pnTKDL);
 
         pnLeft.add(pnMenu, java.awt.BorderLayout.CENTER);
 
-        pnLogo.setBackground(new java.awt.Color(0, 0, 0));
+        pnLogo.setBackground(new java.awt.Color(204, 204, 255));
 
         lbLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_logo_bkcit.png"))); // NOI18N
 
@@ -184,7 +205,7 @@ public class FrMain extends javax.swing.JFrame {
         pnLogo.setLayout(pnLogoLayout);
         pnLogoLayout.setHorizontalGroup(
             pnLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lbLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lbLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
         );
         pnLogoLayout.setVerticalGroup(
             pnLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,7 +223,7 @@ public class FrMain extends javax.swing.JFrame {
         pnMainView.setLayout(pnMainViewLayout);
         pnMainViewLayout.setHorizontalGroup(
             pnMainViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 417, Short.MAX_VALUE)
+            .addGap(0, 574, Short.MAX_VALUE)
         );
         pnMainViewLayout.setVerticalGroup(
             pnMainViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
