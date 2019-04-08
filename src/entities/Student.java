@@ -5,8 +5,6 @@
  */
 package entities;
 
-import common.StudentStatus;
-import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -24,12 +22,12 @@ public class Student {
     private String workplace;
     private String address;
     private String description;
-    private StudentStatus status;
+    private String status;
 
     public Student() {
     }
 
-    public Student(int id, String fullName, boolean gender, Date dateOfBirth, String phone, String mail, String flink, String workplace, String address, String description, StudentStatus status) {
+    public Student(int id, String fullName, boolean gender, Date dateOfBirth, String phone, String mail, String flink, String workplace, String address, String description, String status) {
         this.id = id;
         this.fullName = fullName;
         this.gender = gender;
@@ -123,11 +121,11 @@ public class Student {
         this.description = description;
     }
 
-    public StudentStatus getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(StudentStatus status) {
+    public void setStatus(String status) {
         this.status = status;
     }
     

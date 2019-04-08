@@ -20,6 +20,7 @@ public class PnStudentManagers extends javax.swing.JPanel {
         initComponents();
         final StudentController studentController = new StudentController(tbStudent, tfSearch, btExport, btInsert);
         studentController.loadDataTable();
+        
     }
 
     /**

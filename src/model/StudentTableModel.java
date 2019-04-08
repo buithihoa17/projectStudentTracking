@@ -9,20 +9,21 @@ import entities.Student;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import service.StudentService;
+import service.impl.StudentServiceImpl;
 
 /**
  *
  * @author PC
  */
-public class StudentModel extends AbstractTableModel {
+public class StudentTableModel extends AbstractTableModel {
 
     private List<Student> students;
     private final StudentService studentService;
     private String[] cols = {"STT", "Họ Tên", "Giới Tính", "Ngày sinh", "Số  điện thoại", "FLink", "Nơi công tác",  "Tình trạng",};
 
-    public StudentModel() {
-        studentService = new StudentService();
-        students = studentService.getStudent();
+    public StudentTableModel() {
+        studentService = new StudentServiceImpl();
+        students = studentService.getAllStudents();
 
     }
 

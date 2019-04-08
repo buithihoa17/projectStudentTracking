@@ -21,4 +21,23 @@ public enum StudentStatus {
     private String getValue(){
         return value;
     }
+    public static String getStatus(String input) {
+        String status = " ";
+        switch (input) {
+            case "Đang theo học":
+                status = StudentStatus.INPROGRESS.getValue();
+                break;
+            case "Đợi khóa sau":
+                status = StudentStatus.WAITING.getValue();
+                break;
+            case "Đã hoàn thành":
+                status = StudentStatus.DONE.getValue();
+                break;
+            case "Tạm dừng":
+                status = StudentStatus.DISCARD.getValue();
+                break;
+
+        }
+        return status;
+    }
 }

@@ -5,27 +5,28 @@
  */
 package service;
 
-import dao.StudentDao;
 import entities.Student;
-import java.util.Collections;
 import java.util.List;
 
 /**
  *
  * @author PC
  */
-public class StudentService {
+public interface StudentService {
 
-    private final StudentDao studentDao;
+    List<Student> getAllStudents();
+    
+//    private final StudentDao studentDao;
+//
+//    public StudentService() {
+//        this.studentDao = new StudentDao();
+//    }
+//    public List<Student> getStudent(){
+//        final List<Student> students = studentDao.getStudent();
+//        if(!students.isEmpty()){
+//            return students;
+//        }
+//        return Collections.emptyList();
+//    }
 
-    public StudentService() {
-        this.studentDao = new StudentDao();
-    }
-    public List<Student> getStudent(){
-        final List<Student> students = studentDao.getStudent();
-        if(!students.isEmpty()){
-            return students;
-        }
-        return Collections.emptyList();
-    }
-    }
+}
